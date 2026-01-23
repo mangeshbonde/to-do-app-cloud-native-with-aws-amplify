@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./app.css";
+import AuthenticatorWrapper from "./AuthenticatorWrapper";
+import "@aws-amplify/ui-react/styles.css";
+import outputs from "@/amplify_outputs.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+       
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>      
+        <AuthenticatorWrapper>
+          {children}
+        </AuthenticatorWrapper>
+      </body>
     </html>
   );
 }
